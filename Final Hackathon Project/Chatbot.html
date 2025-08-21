@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot</title>
+    <style>
+        .chatbot {
+            border: 2px solid red;
+            width: 300px;
+            padding: 0;
+            height: 90px;
+            border-radius: 10px;
+            transition: height 0.3s ease;
+            z-index: 1000;
+        }
+        .image-chat {
+            background-color: lightcoral;
+            width: 300px;
+            height: 90px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .image-chat img {
+            z-index: 1000;
+            width: 80px;
+            height: 80px;
+        }
+        .chat-container {
+            padding: 10px;
+            display: none;
+            flex-direction: column;
+            align-items: center;
+        }
+        .chat-container input {
+            width: 200px;
+            height: 30px;
+            border: 2px solid lightcoral;
+            background-color: transparent;
+            border-radius: 10px;
+        }
+        .chat-container button {
+            border: 2px solid red;
+            background-color: red;
+            color: white;
+            border-radius: 10px;
+            width: 67px;
+            height: 30px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .chat-container hr {
+            width: 275px;
+            border: 1px solid red;
+            margin: 10px 0;
+        }
+        .chat {
+            max-height: 180px;
+            max-width: 300px;
+            overflow-y: auto;
+            overflow-x: auto;
+            margin-top: 10px;
+        }
+        .user-message {
+            text-align: right;
+            margin: 10px;
+            color: lightcoral;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .bot-message {
+            text-align: left;
+            margin: 15px;
+            color: red;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div class="chatbot" id="Chatbot">
+        <div class="image-chat" id="ImgChat">
+            <img src="images/Chatbot_img copy Background Removed.png" alt="Chatbot Icon">
+        </div>
+        <div class="chat" id="Chat"></div>
+        <div class="chat-container" id="ChatCont">
+            <hr id="MyHr">
+            <input type="text" id="user-input" placeholder="Type your message...">
+            <button id="send-btn">Send</button>
+        </div>
+    </div>
+
+    <script>
+        const chatbot = document.getElementById('Chatbot');
+        const imgChat = document.getElementById('ImgChat');
+        const chatCont = document.getElementById('ChatCont');
+        const chatInput = document.getElementById('user-input');
+        const sendBtn = document.getElementById('send-btn');
+        const hr = document.getElementById('MyHr');
+        const chat = document.getElementById('Chat');
+
+        let isOpen = false;
+
+        imgChat.addEventListener('click', () => {
+            if (isOpen) {
+                chatbot.style.height = '90px';
+                chatCont.style.display = 'none';
+                hr.style.display = 'none';
+            } else {
+                chatbot.style.height = '400px';
+                chatCont.style.display = 'flex';
+                hr.style.display = 'block';
+            }
+            isOpen = !isOpen;
+        });
+
+        const url = '';
+        const options = {
+            method: 'POST',
+            headers: {
+                'x-rapidapi-key': '',
+                'x-rapidapi-host': '',
+                'Content-Type': 'application/json',
+            },
+        };
+
+        sendBtn.addEventListener('click', async () => {
+            const userInput = chatInput.value;
+            const requestBody = {
+                messages: [
+                    {
+                        role: 'user',
+                        content: userInput,
+                    },
+                ],
+                web_access: false,
+            };
+
+            options.body = JSON.stringify(requestBody);
+
+            try {
+                const response = await fetch(url, options);
+                const result = await response.json();
+                const botResponse = result.result;
+                displayMessage(userInput, 'user');
+                displayMessage(botResponse, 'bot');
+            } catch (error) {
+                console.error(error);
+                displayMessage('Error occurred. Please try again.', 'bot');
+            }
+
+            chatInput.value = '';
+        });
+
+        function displayMessage(message, sender) {
+            const messageElement = document.createElement('div');
+            messageElement.className = sender === 'user' ? 'user-message' : 'bot-message';
+            messageElement.textContent = message;
+            chat.appendChild(messageElement);
+            chat.scrollTop = chat.scrollHeight;
+        }
+    </script>
+</body>
+</html>

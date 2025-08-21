@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<head>
+    <title>Contact Us</title>
+    <meta charset="utf-8">
+    <style>
+    body {
+    background-color: #0C359E;
+        }
+    .navbar {
+        margin-top: 30px;
+        border: none;
+        border-radius: 40px;
+        padding: 5px;
+        padding: 10px;
+        background-color: darkblue;
+        height: 65px;
+        width: 1100px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .navbar img {
+        width: 40px;
+        height: 40px;
+        margin-left: 20px;
+    }
+    .navbar a {
+        text-decoration: none;
+        color: #EEF7FF;
+        font-size: 24px;
+        margin-left: 65px;
+    }
+    .navbar a:hover {
+        text-decoration: underline;
+        opacity: 80%;
+    }
+    .navbar i {
+        font-size: 20px;
+        color: #EEF7FF;
+    }
+    h1 {
+        text-align: center;
+        color: white;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    }
+    .text1 {
+        text-align: center;
+        font-size: 24px;
+        color: white;
+    }
+    #Thanks {
+        display: none;
+        color: white;
+        font-size: 20px;
+        margin-top: 30px;
+        margin-left: 510px;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    #msgInput {
+        text-align: left;
+        background-color: #0C359E;
+        border: 2px solid white;
+        border-radius: 10px;
+        width: 300px;
+        height: 40px;
+        margin-left: 680px;
+        color: white;
+        font-size: 20px;
+    }
+    button {
+        border: 2px solid white;
+        background-color: #0C359E;
+        width: 300px;
+        height: 30px;
+        color: white;
+        font-size: 15px;
+        cursor: pointer;
+        border-radius: 10px;
+        margin-left: 685px;
+    }
+    button:hover {
+        opacity: 70%;
+    }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="Hackathon Project.html"><img style="margin-bottom: -10px; margin-top: 10px;" src="images/weather icon.webp"></a>
+        <a href="Contacts.html">Contact Us<i style="padding-left: 9px;" class="fa-solid fa-phone"></i></a>
+        <a href="About.html">About Our Website</a><i style="padding-left: 9px;" class="fa-solid fa-circle-info"></i>
+        <a href="Trending Destinations.html">Trending Travel Destinations<i style="padding-left: 9px;" class="fa-solid fa-arrow-trend-up"></i></a>
+    </div>
+    <h1>Travel With Us</h1>
+    <p class="text1">If you have a complaint, compliment or message for us you can contact us or write below :</p>
+    <input type="text" name="message" id="msgInput"><br><br>
+    <button id="SubmitMessage">Submit Message</button>
+    <div id="Thanks">
+        <p>Thanks for the message. We will get back to you with a response ASAP.</p>
+    </div>
+</body>
+<script>
+    var THANKS = document.getElementById('Thanks');
+    var Submitmessage = document.getElementById('SubmitMessage');
+    Submitmessage.onclick = function()
+    {
+        THANKS.style.display = 'flex';
+    }
+</script>

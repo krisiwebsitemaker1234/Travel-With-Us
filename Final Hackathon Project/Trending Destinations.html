@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<head>
+    <title>Trending Destinations</title>
+    <meta charset="utf-8">
+    <script src="https://kit.fontawesome.com/dfba5e2447.js" crossorigin="anonymous"></script>
+    <style>
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #1F509A;
+}
+.navbar {
+    margin-top: 20px;
+    border: none;
+    border-radius: 40px;
+    padding: 5px;
+    padding: 10px;
+    background-color: darkblue;
+    height: 65px;
+    width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.navbar img {
+    width: 40px;
+    height: 40px;
+    margin-left: 20px;
+}
+.navbar a {
+    text-decoration: none;
+    color: #EEF7FF;
+    font-size: 24px;
+    margin-left: 65px;
+}
+.navbar a:hover {
+    opacity: 80%;
+}
+.navbar i {
+    font-size: 20px;
+    color: #EEF7FF;
+} 
+header {
+  text-align: center;
+  padding: 20px;
+  color: #EEF7FF;
+}
+
+header h1 {
+  font-size: 2.5em;
+}
+
+main {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  padding: 20px;
+}
+
+.destination {
+  background: #EEF7FF;
+  border: 1px solid #EEF7FF;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+  width: 300px;
+  cursor: pointer;
+}
+
+.destination:hover {
+  transform: translateY(-5px);
+}
+
+.destination img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.destination h2 {
+  margin: 10px;
+  font-size: 1.5em;
+}
+
+.destination p {
+  margin: 10px;
+  font-size: 1em;
+  line-height: 1.5;
+}
+.destinations {
+    border: 2px solid #EEF7FF;
+    border-radius: 5px;
+    padding: 20px;
+    padding-left: 100px;
+    padding-right: 100px;
+    padding-top: 90px;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    display: none;
+}
+.destinations img {
+    width: 1000px;
+    height: 600px;
+    border-radius: 10px;
+}
+.destinations .city {
+    font-size: 45px;
+    color: #EEF7FF;
+    text-align: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.destinations .presentation-paragraph {
+    color: #EEF7FF;
+    font-size: 17px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-align: center;
+}
+.destinations .question {
+    color: white;
+    text-align: center;
+    font-size: 28px;
+}
+.destinations .weather-type {
+    color: whitesmoke;
+    font-size: 20px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-align: center;
+}
+    </style>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trending Travel Destinations</title>
+</head>
+<body>
+    <div class="navbar">
+        <a href="Hackathon Project.html"><img style="margin-bottom: -10px; margin-top: 10px;" src="images/weather icon.webp"></a>
+        <a href="Contacts.html">Contact Us<i style="padding-left: 9px;" class="fa-solid fa-phone"></i></a>
+        <a href="#">About Our Website</a><i style="padding-left: 9px;" class="fa-solid fa-circle-info"></i>
+        <a href="Trending Destinations.html">Trending Travel Destinations<i style="padding-left: 9px;" class="fa-solid fa-arrow-trend-up"></i></a>
+    </div>
+  <header>
+    <h1>Trending Travel Destinations</h1>
+    <p>Explore the most exciting cities to visit this year!</p>
+  </header>
+
+<main>
+    <section class="destination" id="barcelona">
+      <img src="images/barcelona.webp" alt="Barcelona">
+      <h2>Barcelona, Spain</h2>
+      <p>Barcelona offers stunning architecture, Mediterranean beaches, and vibrant nightlife. Don’t miss the Sagrada Família and Park Güell.</p>
+    </section>
+
+    <section class="destination" id="paris">
+      <img src="images/paris.jpg" alt="Paris">
+      <h2>Paris, France</h2>
+      <p>The City of Light is famous for the Eiffel Tower, world-class museums, and its romantic atmosphere.</p>
+    </section>
+
+    <section class="destination" id="milan">
+      <img src="images/milan.jpg" alt="Milan">
+      <h2>Milan, Italy</h2>
+      <p>Milan is a global fashion capital with stunning landmarks like the Duomo and incredible Italian cuisine.</p>
+    </section>
+
+    <section class="destination" id="rome">
+      <img src="images/roma.jpg" alt="Rome">
+      <h2>Rome, Italy</h2>
+      <p>Known as the Eternal City, Rome boasts ancient wonders like the Colosseum and Vatican City.</p>
+    </section>
+
+    <section class="destination" id="london">
+      <img src="images/london.png" alt="London">
+      <h2>London, UK</h2>
+      <p>London is a cultural hub with iconic sites such as Big Ben, the Tower Bridge, and the British Museum.</p>
+    </section>
+
+    <section class="destination" id="tirana">
+      <img src="images/tirana.png" alt="Tirana">
+      <h2>Tirana, Albania</h2>
+      <p>Tirana, a hidden gem, features colorful architecture, a lively art scene, and breathtaking mountain views.</p>
+    </section>
+  </main>
+
+
+  <div class="main-destination" id="MainDestination">
+    <div class="destinations" id="Barcelona">
+        <img src="images/barcelona.webp">
+        <p class="city">Barcelona</p>
+        <p class="presentation-paragraph">
+            Barcelona is a city on the northeastern coast of Spain. It is the capital<br>
+            and largest city of the autonomous community of Catalonia, as well as the <br>
+            second-most populous municipality of Spain. With a population of 1.6 million<br>
+            within city limits, its urban area extends to numerous neighbouring municipalities<br>
+            within the province of Barcelona and is home to around 5.3 million people, making<br>
+            it the fifth most populous urban area of the European Union after Paris, the Ruhr area,<br>
+            Madrid and Milan. It is one of the largest metropolises on the Mediterranean Sea, located<br>
+            on the coast between the mouths of the rivers Llobregat and Besòs, bounded to the west by<br>
+            the Serra de Collserola mountain range.
+        </p>
+        <h4 class="question">How Is The Weather This Time Of Year?</h4>
+        <p class="weather-type">
+            Expect 14°C daytime maximum temperatures in the shade with on average 5 hours of sunshine per <br>
+            day in Barcelona in December. Check more long-term weather averages for Barcelona in December<br>
+            before you book your next holiday to Spain in 2024/2025.
+        </p>
+    </div>
+    <div class="destinations" id="Paris">
+        <img src="images/paris.jpg">
+        <p class="city">Paris</p>
+        <p class="presentation-paragraph">
+            Paris is the capital and largest city of France. With an official estimated<br>
+            population of 2,102,650 residents in January 2023 in an area of more than <br>
+            105 km2 (41 sq mi), Paris is the fourth-largest city in the European Union<br>
+            and the 30th most densely populated city in the world in 2022. Since the <br>
+            17th century, Paris has been one of the world's major centres of finance, <br>
+            diplomacy, commerce, culture, fashion, and gastronomy. For its leading role <br>
+            in the arts and sciences, as well as its early and extensive system of<br>
+            street lighting, in the 19th century, it became known as the City of Light.
+        </p>
+        <h4 class="question">How Is The Weather This Time Of Year?</h4>
+        <p class="weather-type">
+            Expect 7°C daytime maximum temperatures in the shade with on average 2 hours of<br> 
+            sunshine per day in Paris in December. Check more long-term weather averages for<br>
+            Paris in December before you book your next holiday to France in 2024/2025.
+        </p>
+    </div>
+    <div class="destinations" id="Tirana">
+        <img src="images/tirana.png">
+        <p class="city">Tirana</p>
+        <p class="presentation-paragraph">
+            Tirana is the capital and largest city of Albania. It is located <br>
+            in the centre of the country, enclosed by mountains and hills, with<br>
+            Dajti rising to the east and a slight valley to the northwest <br>
+            overlooking the Adriatic Sea in the distance. It is among the <br>
+            wettest and sunniest cities in Europe, with 2,544 hours of sun per year.
+        </p>
+        <h4 class="question">How Is The Weather This Time Of Year?</h4>
+        <p class="weather-type">
+            Expect 12°C daytime maximum temperatures in the shade with on average 4 hours of<br>
+            sunshine per day in Tirana in December. Check more long-term weather averages for<br>
+            Tirana in December before you book your next holiday to Albania in 2024/2025.
+        </p>
+    </div>
+    <div class="destinations" id="London">
+        <img src="images/london.png">
+        <p class="city">London</p>
+        <p class="presentation-paragraph">
+            London is the capital and largest city of both England and the United Kingdom,<br>
+            with a population of 8,866,180 in 2022. The wider metropolitan area is the <br>
+            largest in Western Europe, with a population of 14.9 million. London stands on <br>
+            the River Thames in southeast England, at the head of a 50-mile (80 km) estuary<br>
+            down to the North Sea, and has been a major settlement for nearly 2,000 years. <br>
+            Its ancient core and financial centre, the City of London, was founded by the <br>
+            Romans as Londinium and has retained its medieval boundaries. The City of <br>
+            Westminster, to the west of the City of London, has been the centuries-long host<br>
+            of the national government and parliament. London grew rapidly in the 19th <br>
+            century, becoming the world's largest city at the time. Since the 19th century,<br>
+            the name "London" has referred to the metropolis around the City of London, <br>
+            historically split between the counties of Middlesex, Essex, Surrey, Kent, <br>
+            and Hertfordshire, which since 1965 has largely comprised the administrative area <br>
+            of Greater London, governed by 33 local authorities and the Greater London Authority.
+        </p>
+        <h4 class="question">How Is The Weather This Time Of Year?</h4>
+        <p class="weather-type">
+            Expect 8°C daytime maximum temperatures in the shade with on average 1 hours of sunshine<br>
+            per day in London in December. Check more long-term weather averages for London in <br>
+            December before you book your next holiday to England in 2024/2025.
+        </p>
+    </div>
+    <div class="destinations" id="Rome">
+        <img src="images/roma.jpg">
+        <p class="city">Rome</p>
+        <p class="presentation-paragraph">
+            Rome is the capital city of Italy. It is also the capital of the Lazio region,<br>
+            the centre of the Metropolitan City of Rome Capital, and a special comune <br>
+            (municipality) named Comune di Roma Capitale. With 2,860,009 residents in 1,285<br>
+            km2 (496.1 sq mi), Rome is the country's most populated comune and the third <br>
+            most populous city in the European Union by population within city limits. The <br>
+            Metropolitan City of Rome, with a population of 4,355,725 residents, is the most<br>
+            populous metropolitan city in Italy. Its metropolitan area is the third-most <br>
+            populous within Italy. Rome is located in the central-western portion of the Italian<br>
+            Peninsula, within Lazio (Latium), along the shores of the Tiber Valley. Vatican City <br>
+            (the smallest country in the world and headquarters of the worldwide Catholic Church<br>
+            under the governance of the Holy See) is an independent country inside the city <br>
+            boundaries of Rome, the only existing example of a country within a city. Rome is often<br>
+            referred to as the City of Seven Hills due to its geographic location, and also as the <br>
+            "Eternal City". Rome is generally considered to be the cradle of Western civilization<br> 
+            and Western Christian culture, and the centre of the Catholic Church.
+        </p>
+        <h4 class="question">How Is The Weather This Time Of Year?</h4>
+        <p class="weather-type">
+            Expect 13°C daytime maximum temperatures in the shade with on average 4 hours of sunshine<br>
+            per day in Rome in December. Check more long-term weather averages for Rome in December <br>
+            before you book your next holiday to Italy in 2024/2025.
+        </p>
+    </div>
+    <div class="destinations" id="Milan">
+        <img src="images/milan.jpg">
+        <p class="city">Milan</p>
+        <p class="presentation-paragraph">
+            Milan is a city in northern Italy, regional capital of Lombardy, the largest city in Italy<br>
+            by urban population and the second-most-populous city proper in Italy after Rome. The city <br>
+            proper has a population of about 1.4 million, while its metropolitan city has 3.22 million<br>
+            residents. The urban area of Milan is the fourth-most-populous in the EU with 6.17 million<br>
+            inhabitants. According to national sources, the population within the wider Milan metropolitan<br>
+            area (also known as Greater Milan) is estimated between 7.5 million and 8.2 million, making it<br>
+            by far the largest metropolitan area in Italy and one of the largest in the EU. Milan is the <br>
+            economic capital of Italy, one of the economic capitals of Europe and a global financial centre.
+        </p>
+        <h4 class="question">How Is The Weather This Time Of Year?</h4>
+        <p class="weather-type">
+            In general, the average temperature in Milan at the beginning of December is 5.4 °C. As <br>
+            the month progressed, temperatures tended to significantly warm up, reaching an average of <br>
+            9.4 °C by the end of December.
+        </p>
+    </div>
+</div>
+</body>
+</html>
+</body>
+<script>
+    var SearchBar = document.getElementById('searchBar');
+    var SearchBtn = document.getElementById('searchBtn');
+    var Barcelona = document.getElementById('Barcelona');
+    var Paris = document.getElementById('Paris');
+    var Tirana = document.getElementById('Tirana');
+    var London = document.getElementById('London');
+    var Rome = document.getElementById('Rome');
+    var Milan = document.getElementById('Milan');
+    var Bar = document.getElementById('barcelona');
+    var Par = document.getElementById('paris');
+    var Tir = document.getElementById('tirana');
+    var Lond = document.getElementById('london');
+    var Rom = document.getElementById('rome');
+    var Mil = document.getElementById('milan');
+
+    Bar.onclick = function()
+    {
+        Barcelona.style.display = 'block';
+        Paris.style.display = 'none';
+        Tirana.style.display = 'none';
+        London.style.display = 'none';
+        Rome.style.display = 'none';
+        Milan.style.display = 'none';
+    }
+    Par.onclick = function()
+    {
+        Barcelona.style.display = 'none';
+        Paris.style.display = 'block';
+        Tirana.style.display = 'none';
+        London.style.display = 'none';
+        Rome.style.display = 'none';
+        Milan.style.display = 'none';
+    }
+    Tir.onclick = function()
+    {
+        Tirana.style.display = 'block';
+        Barcelona.style.display = 'none';
+        Paris.style.display = 'none';
+        London.style.display = 'none';
+        Rome.style.display = 'none';
+        Milan.style.display = 'none';
+    }
+    Lond.onclick = function()
+    {
+        Barcelona.style.display = 'none';
+        London.style.display = 'block';
+        Paris.style.display = 'none';
+        Tirana.style.display = 'none';
+        Rome.style.display = 'none';
+        Milan.style.display = 'none';
+    }
+    Rom.onclick = function()
+    {
+        Barcelona.style.display = 'none';
+        Rome.style.display = 'block';
+        Paris.style.display = 'none';
+        Tirana.style.display = 'none';
+        London.style.display = 'none';
+        Milan.style.display = 'none';
+    }
+    Mil.onclick = function()
+    {
+        Milan.style.display = 'block';
+        Barcelona.style.display = 'none';
+        Paris.style.display = 'none';
+        Tirana.style.display = 'none';
+        London.style.display = 'none';
+        Rome.style.display = 'none';
+    }
+</script>

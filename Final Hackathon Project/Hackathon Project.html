@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<head>
+    <title>Travel With Us</title>
+    <link rel="stylesheet" href="Hackathon Project.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width-device-width, initial scale = 1.0">
+    <script src="https://kit.fontawesome.com/dfba5e2447.js" crossorigin="anonymous"></script>
+    <style>
+        body {
+    padding: 10px;
+    background-color: #1F509A;
+}
+.type-visit {
+    float: inline-start;
+    border: 2px solid white;
+    border-radius: 20px;
+    margin-top: 100px;
+    margin-left: 435px;
+    width: 750px;
+    text-align: center;
+}
+.type-visit h1 {
+    text-align: center;
+    color: #EEF7FF;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.type-visit input {
+    float: inline-end;
+    margin-right: 230px;
+    margin-top: -40px;
+    display: block;
+    background-color: transparent;
+    border: 2px solid #EEF7FF;
+    border-radius: 5px;
+    color: white;
+}
+.type-visit input:focus {
+    outline: none;
+}
+.type-visit p {
+    font-size: 20px;
+    color: white;
+    text-align: center;
+    padding-right: 200px;
+    padding-left: 50px;
+}
+.type-visit #searchBtn {
+    float: inline-end;
+    margin-top: -40px;
+    background-color: transparent;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-right: 200px;
+    font-size: 20px;
+    width: fit-content;
+    height: fit-content;
+    padding: 0;
+}
+.navbar {
+    border: none;
+    border-radius: 40px;
+    padding: 5px;
+    padding: 10px;
+    background-color: darkblue;
+    height: 65px;
+    width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.navbar img {
+    width: 40px;
+    height: 40px;
+    margin-left: 20px;
+}
+.navbar a {
+    text-decoration: none;
+    color: #EEF7FF;
+    font-size: 24px;
+    margin-left: 65px;
+}
+.navbar a:hover {
+    opacity: 80%;
+}
+.navbar i {
+    font-size: 20px;
+    color: #EEF7FF;
+} 
+.destinations {
+    border: 2px solid #EEF7FF;
+    border-radius: 5px;
+    padding: 20px;
+    padding-left: 100px;
+    padding-right: 100px;
+    padding-top: 90px;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    display: none;
+}
+.destinations img {
+    width: 1000px;
+    height: 600px;
+    border-radius: 10px;
+}
+.destinations .city {
+    font-size: 45px;
+    color: #EEF7FF;
+    text-align: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.destinations .presentation-paragraph {
+    color: #EEF7FF;
+    font-size: 17px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-align: center;
+}
+.destinations .question {
+    color: white;
+    text-align: center;
+    font-size: 28px;
+}
+.destinations .weather-type {
+    color: whitesmoke;
+    font-size: 20px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-align: center;
+}
+.chatbot {
+    border: 2px solid #EEF7FF;
+    width: 300px;
+    height: 90px;
+    border-radius: 10px;
+    margin: 20px;
+    margin-top: 100px;
+    transition: height 0.3s ease;
+    z-index: 100;
+    float: right;
+    background-color: whitesmoke;
+}
+.image-chat {
+    background-color: lightgreen;
+    width: 300px;
+    height: 90px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.image-chat img {
+    z-index: 1000;
+    width: 80px;
+    height: 80px;
+}
+.chat-container {
+    padding: 10px;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+}
+.chat-container input {
+    width: 200px;
+    height: 30px;
+    border: 2px solid lightcoral;
+    background-color: transparent;
+    border-radius: 10px;
+}
+.chat-container button {
+    border: 2px solid red;
+    background-color: red;
+    color: white;
+    border-radius: 10px;
+    width: 67px;
+    height: 30px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+.chat-container hr {
+    width: 275px;
+    border: 1px solid red;
+    margin: 10px 0;
+}
+.chat {
+    max-height: 180px;
+    max-width: 300px;
+    overflow-y: auto;
+    overflow-x: auto;
+    margin-top: 10px;
+}
+.user-message {
+    text-align: right;
+    margin: 10px;
+    color: lightcoral;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.bot-message {
+    text-align: left;
+    margin: 15px;
+    color: red;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+#aiDisplay {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    font-family: Arial, sans-serif;
+}
+
+#aiDisplay h3, #aiDisplay h4 {
+    margin-bottom: 10px;
+    color: #333;
+}
+
+#aiDisplay p {
+    margin: 5px 0;
+    color: #555;
+}
+footer {
+    margin-top: 450px;
+    width: 1640px;
+    height: 200px;
+    background-color: darkblue;
+}
+footer .bn45 {
+    width: 170px;
+    height: 50px;
+    margin-top: 70px;
+  }
+footer .bn46 {
+    width: 170px;
+    height: 50px;
+    margin-left: 20px;
+}
+footer i {
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+    float: inline-end;
+    margin-right: 40px;
+    margin-top: 85px;
+}
+footer i:hover {
+    opacity: 60%;
+}
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="Hackathon Project.html"><img style="margin-bottom: -10px; margin-top: 10px;" src="images/weather icon.webp"></a>
+        <a href="Contacts.html">Contact Us<i style="padding-left: 9px;" class="fa-solid fa-phone"></i></a>
+        <a href="About.html">About Our Website</a><i style="padding-left: 9px;" class="fa-solid fa-circle-info"></i>
+        <a href="Trending Destinations.html">Trending Travel Destinations<i style="padding-left: 9px;" class="fa-solid fa-arrow-trend-up"></i></a>
+    </div>
+    <div class="type-visit">
+    <h1>Where You Headed ?</h1>
+    <p>I am going to :</p><input type="search" name="search-bar" id="searchBar">
+    <button id="searchBtn"><i class="fa-solid fa-magnifying-glass"></i></button>
+    </div><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <div class="main-destination" id="MainDestination">
+        <div class="destinations" id="Barcelona">
+            <img src="images/barcelona.webp">
+            <p class="city">Barcelona</p>
+            <p class="presentation-paragraph">
+                Barcelona is a city on the northeastern coast of Spain. It is the capital<br>
+                and largest city of the autonomous community of Catalonia, as well as the <br>
+                second-most populous municipality of Spain. With a population of 1.6 million<br>
+                within city limits, its urban area extends to numerous neighbouring municipalities<br>
+                within the province of Barcelona and is home to around 5.3 million people, making<br>
+                it the fifth most populous urban area of the European Union after Paris, the Ruhr area,<br>
+                Madrid and Milan. It is one of the largest metropolises on the Mediterranean Sea, located<br>
+                on the coast between the mouths of the rivers Llobregat and Besòs, bounded to the west by<br>
+                the Serra de Collserola mountain range.
+            </p>
+            <h4 class="question">How Is The Weather This Time Of Year?</h4>
+            <p class="weather-type">
+                Expect 14°C daytime maximum temperatures in the shade with on average 5 hours of sunshine per <br>
+                day in Barcelona in December. Check more long-term weather averages for Barcelona in December<br>
+                before you book your next holiday to Spain in 2024/2025.
+            </p>
+        </div>
+        <div class="destinations" id="Paris">
+            <img src="images/paris.jpg">
+            <p class="city">Paris</p>
+            <p class="presentation-paragraph">
+                Paris is the capital and largest city of France. With an official estimated<br>
+                population of 2,102,650 residents in January 2023 in an area of more than <br>
+                105 km2 (41 sq mi), Paris is the fourth-largest city in the European Union<br>
+                and the 30th most densely populated city in the world in 2022. Since the <br>
+                17th century, Paris has been one of the world's major centres of finance, <br>
+                diplomacy, commerce, culture, fashion, and gastronomy. For its leading role <br>
+                in the arts and sciences, as well as its early and extensive system of<br>
+                street lighting, in the 19th century, it became known as the City of Light.
+            </p>
+            <h4 class="question">How Is The Weather This Time Of Year?</h4>
+            <p class="weather-type">
+                Expect 7°C daytime maximum temperatures in the shade with on average 2 hours of<br> 
+                sunshine per day in Paris in December. Check more long-term weather averages for<br>
+                Paris in December before you book your next holiday to France in 2024/2025.
+            </p>
+        </div>
+        <div class="destinations" id="Tirana">
+            <img src="images/tirana.png">
+            <p class="city">Tirana</p>
+            <p class="presentation-paragraph">
+                Tirana is the capital and largest city of Albania. It is located <br>
+                in the centre of the country, enclosed by mountains and hills, with<br>
+                Dajti rising to the east and a slight valley to the northwest <br>
+                overlooking the Adriatic Sea in the distance. It is among the <br>
+                wettest and sunniest cities in Europe, with 2,544 hours of sun per year.
+            </p>
+            <h4 class="question">How Is The Weather This Time Of Year?</h4>
+            <p class="weather-type">
+                Expect 12°C daytime maximum temperatures in the shade with on average 4 hours of<br>
+                sunshine per day in Tirana in December. Check more long-term weather averages for<br>
+                Tirana in December before you book your next holiday to Albania in 2024/2025.
+            </p>
+        </div>
+        <div class="destinations" id="London">
+            <img src="images/london.png">
+            <p class="city">London</p>
+            <p class="presentation-paragraph">
+                London is the capital and largest city of both England and the United Kingdom,<br>
+                with a population of 8,866,180 in 2022. The wider metropolitan area is the <br>
+                largest in Western Europe, with a population of 14.9 million. London stands on <br>
+                the River Thames in southeast England, at the head of a 50-mile (80 km) estuary<br>
+                down to the North Sea, and has been a major settlement for nearly 2,000 years. <br>
+                Its ancient core and financial centre, the City of London, was founded by the <br>
+                Romans as Londinium and has retained its medieval boundaries. The City of <br>
+                Westminster, to the west of the City of London, has been the centuries-long host<br>
+                of the national government and parliament. London grew rapidly in the 19th <br>
+                century, becoming the world's largest city at the time. Since the 19th century,<br>
+                the name "London" has referred to the metropolis around the City of London, <br>
+                historically split between the counties of Middlesex, Essex, Surrey, Kent, <br>
+                and Hertfordshire, which since 1965 has largely comprised the administrative area <br>
+                of Greater London, governed by 33 local authorities and the Greater London Authority.
+            </p>
+            <h4 class="question">How Is The Weather This Time Of Year?</h4>
+            <p class="weather-type">
+                Expect 8°C daytime maximum temperatures in the shade with on average 1 hours of sunshine<br>
+                per day in London in December. Check more long-term weather averages for London in <br>
+                December before you book your next holiday to England in 2024/2025.
+            </p>
+        </div>
+        <div class="destinations" id="Rome">
+            <img src="images/roma.jpg">
+            <p class="city">Rome</p>
+            <p class="presentation-paragraph">
+                Rome is the capital city of Italy. It is also the capital of the Lazio region,<br>
+                the centre of the Metropolitan City of Rome Capital, and a special comune <br>
+                (municipality) named Comune di Roma Capitale. With 2,860,009 residents in 1,285<br>
+                km2 (496.1 sq mi), Rome is the country's most populated comune and the third <br>
+                most populous city in the European Union by population within city limits. The <br>
+                Metropolitan City of Rome, with a population of 4,355,725 residents, is the most<br>
+                populous metropolitan city in Italy. Its metropolitan area is the third-most <br>
+                populous within Italy. Rome is located in the central-western portion of the Italian<br>
+                Peninsula, within Lazio (Latium), along the shores of the Tiber Valley. Vatican City <br>
+                (the smallest country in the world and headquarters of the worldwide Catholic Church<br>
+                under the governance of the Holy See) is an independent country inside the city <br>
+                boundaries of Rome, the only existing example of a country within a city. Rome is often<br>
+                referred to as the City of Seven Hills due to its geographic location, and also as the <br>
+                "Eternal City". Rome is generally considered to be the cradle of Western civilization<br> 
+                and Western Christian culture, and the centre of the Catholic Church.
+            </p>
+            <h4 class="question">How Is The Weather This Time Of Year?</h4>
+            <p class="weather-type">
+                Expect 13°C daytime maximum temperatures in the shade with on average 4 hours of sunshine<br>
+                per day in Rome in December. Check more long-term weather averages for Rome in December <br>
+                before you book your next holiday to Italy in 2024/2025.
+            </p>
+        </div>
+        <div class="destinations" id="Milan">
+            <img src="images/milan.jpg">
+            <p class="city">Milan</p>
+            <p class="presentation-paragraph">
+                Milan is a city in northern Italy, regional capital of Lombardy, the largest city in Italy<br>
+                by urban population and the second-most-populous city proper in Italy after Rome. The city <br>
+                proper has a population of about 1.4 million, while its metropolitan city has 3.22 million<br>
+                residents. The urban area of Milan is the fourth-most-populous in the EU with 6.17 million<br>
+                inhabitants. According to national sources, the population within the wider Milan metropolitan<br>
+                area (also known as Greater Milan) is estimated between 7.5 million and 8.2 million, making it<br>
+                by far the largest metropolitan area in Italy and one of the largest in the EU. Milan is the <br>
+                economic capital of Italy, one of the economic capitals of Europe and a global financial centre.
+            </p>
+            <h4 class="question">How Is The Weather This Time Of Year?</h4>
+            <p class="weather-type">
+                In general, the average temperature in Milan at the beginning of December is 5.4 °C. As <br>
+                the month progressed, temperatures tended to significantly warm up, reaching an average of <br>
+                9.4 °C by the end of December.
+            </p>
+        </div>
+    </div>
+    <div class="chatbot" id="Chatbot">
+        <div class="image-chat" id="ImgChat">
+            <img src="images/Chatbot_img copy Background Removed.png" alt="Chatbot Icon">
+        </div>
+        <div class="chat" id="Chat"></div>
+        <div class="chat-container" id="ChatCont">
+            <hr id="MyHr">
+            <input type="text" id="user-input" placeholder="Type your message...">
+            <button id="send-btn">Send</button>
+        </div>
+    </div>
+    <div class="AIDisplay" style="
+    display: block;
+    border: 1px solid #ccc;
+    margin: 20px;
+    padding: 15px;
+    margin-top: 20px;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    " id="aiDisplay"></div>
+    <footer>
+        <a href="" ><img class="bn46" src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"alt="bn45"/></a>
+        <a href="" ><img class="bn45" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Google_Play_Store_badge_EN.svg/2560px-Google_Play_Store_badge_EN.svg.png" alt="bn45"/></a>
+        <i class="fa-brands fa-instagram"></i>
+        <i class="fa-brands fa-x-twitter"></i>
+        <i class="fa-brands fa-youtube"></i>
+        <i class="fa-brands fa-facebook"></i>
+    </footer>
+</body>
+<script>
+    // Global Variables
+var SearchBar = document.getElementById("searchBar");
+var SearchBtn = document.getElementById("searchBtn");
+var aiDisplay = document.getElementById("aiDisplay");
+var Barcelona = document.getElementById("Barcelona");
+var Paris = document.getElementById("Paris");
+var Tirana = document.getElementById("Tirana");
+var London = document.getElementById("London");
+var Rome = document.getElementById("Rome");
+var Milan = document.getElementById("Milan");
+
+// Chatbot Module Variables
+const chatbot = document.getElementById("Chatbot");
+const imgChat = document.getElementById("ImgChat");
+const chatCont = document.getElementById("ChatCont");
+const chatInput = document.getElementById("user-input");
+const sendBtn = document.getElementById("send-btn");
+const hr = document.getElementById("MyHr");
+const chat = document.getElementById("Chat");
+let isOpen = false;
+
+// API Configurations
+const apiUrl = "https://open-ai21.p.rapidapi.com/claude3";
+const apiHeaders = {
+  "x-rapidapi-key": "9c9ea6935dmsh6df8038c4215f8ap10e703jsn6f2883cbf9e7",
+  "x-rapidapi-host": "open-ai21.p.rapidapi.com",
+  "Content-Type": "application/json",
+};
+
+// Unified Search Function (Triggered by Button or Enter Key)
+const performSearch = async () => {
+  const searchValue = SearchBar.value.trim().toLowerCase();
+
+  // Step 1: Hide all known divs
+  [Barcelona, Paris, Tirana, London, Rome, Milan].forEach(
+    (div) => (div.style.display = "none")
+  );
+
+  // Step 2: Display Loading Message in AI Div
+  aiDisplay.innerHTML = "<p>Loading data... Please wait.</p>";
+
+  // Step 3: Search for dynamic divs on the page
+  const allDivs = document.querySelectorAll("div"); // Get all divs on the page
+  let matchedDiv = null;
+
+  allDivs.forEach((div) => {
+    // Match based on div ID (case-insensitive)
+    if (div.id && div.id.toLowerCase() === searchValue) {
+      matchedDiv = div;
+      div.style.display = "block"; // Display the matched div
+    }
+  });
+
+  // Step 4: Define default data for known divs
+  let pageData = "No specific data available.";
+  if (searchValue === "barcelona") {
+    pageData =
+      "Barcelona is a vibrant city known for its beaches and Gaudí's architecture.";
+  } else if (searchValue === "paris") {
+    pageData = "Paris is the capital of France, known for its art and cuisine.";
+  } else if (searchValue === "tirana") {
+    pageData =
+      "Tirana is the capital of Albania, full of colorful architecture.";
+  } else if (searchValue === "london") {
+    pageData =
+      "London is a historic city with landmarks like Big Ben and the Tower Bridge.";
+  } else if (searchValue === "rome") {
+    pageData =
+      "Rome is the capital of Italy, famous for its ancient ruins like the Colosseum.";
+  } else if (searchValue === "milan") {
+    pageData =
+      "Milan is a fashion capital known for its stunning cathedral and art galleries.";
+  }
+
+  // Step 5: Fetch AI Data from the API
+  let aiResult = "AI couldn't fetch data.";
+  try {
+    const response = await fetch(apiUrl, {
+      method: "POST",
+      headers: apiHeaders,
+      body: JSON.stringify({
+        messages: [{ role: "user", content: `Tell me about ${searchValue}` }],
+        web_access: false,
+      }),
+    });
+
+    if (!response.ok) {
+      throw new Error(`API responded with status ${response.status}`);
+    }
+
+    const data = await response.json();
+    aiResult = data.result || "No response from AI.";
+  } catch (error) {
+    console.error("Error fetching AI data:", error);
+    aiResult = `Error fetching AI data: ${error.message}`;
+  }
+
+  // Step 6: Display Combined Results
+  const matchedMessage = matchedDiv
+    ? `The div with ID "${searchValue}" exists and is displayed on the page.`
+    : `No specific div with ID "${searchValue}" was found on the page.`;
+
+  aiDisplay.innerHTML = `
+        <h3>Search Results for "${searchValue}"</h3>
+        <p>${matchedMessage}</p>
+        <p><strong>Data from the page:</strong> ${pageData}</p>
+        <h4>AI Insights:</h4>
+        <p>${aiResult}</p>
+    `;
+};
+
+// Handle Search Button Click
+SearchBtn.onclick = performSearch;
+
+// Handle Enter Key in Search Bar
+SearchBar.addEventListener("keypress", (event) => {
+  if (event.key === "Enter") {
+    event.preventDefault();
+    performSearch();
+  }
+});
+
+// Chatbot Toggle Functionality
+imgChat.addEventListener("click", () => {
+  if (isOpen) {
+    chatbot.style.height = "90px";
+    chatCont.style.display = "none";
+    chat.style.display = "none";
+    hr.style.display = "none";
+  } else {
+    chatbot.style.height = "400px";
+    chatCont.style.display = "flex";
+    hr.style.display = "block";
+    chat.style.display = "block";
+  }
+  isOpen = !isOpen;
+});
+
+// Chatbot Message Sending
+sendBtn.addEventListener("click", async () => {
+  const userInput = chatInput.value.trim();
+  if (!userInput) {
+    displayMessage("Please enter a message!", "bot");
+    return;
+  }
+
+  const requestBody = {
+    messages: [{ role: "user", content: userInput }],
+    web_access: false,
+  };
+
+  try {
+    const response = await fetch(apiUrl, {
+      method: "POST",
+      headers: apiHeaders,
+      body: JSON.stringify(requestBody),
+    });
+
+    if (!response.ok) {
+      throw new Error(`API responded with status ${response.status}`);
+    }
+
+    const data = await response.json();
+    const botResponse = data.result || "No response from AI.";
+    displayMessage(userInput, "user");
+    displayMessage(botResponse, "bot");
+  } catch (error) {
+    console.error("Error fetching AI data:", error);
+    displayMessage("Error occurred. Please try again.", "bot");
+  }
+
+  chatInput.value = "";
+});
+
+// Function to Display Chat Messages
+function displayMessage(message, sender) {
+  const messageElement = document.createElement("div");
+  messageElement.className = sender === "user" ? "user-message" : "bot-message";
+  messageElement.textContent = message;
+  chat.appendChild(messageElement);
+  chat.scrollTop = chat.scrollHeight;
+}
+
+</script>
